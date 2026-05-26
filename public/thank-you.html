@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You - GL Protocol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: #FAFAFA;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .banner {
+      background: linear-gradient(135deg, #065f46, #047857);
+      color: white;
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+    .banner h1 {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+    .banner p {
+      font-size: 1.125rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      flex: 1;
+    }
+    .card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border: 1px solid #e5e7eb;
+      margin-bottom: 2rem;
+    }
+    .card h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #111;
+    }
+    .steps {
+      list-style: none;
+      counter-reset: steps;
+    }
+    .steps li {
+      counter-increment: steps;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid #f3f4f6;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .steps li:last-child { border-bottom: none; }
+    .steps li::before {
+      content: counter(steps);
+      flex-shrink: 0;
+      width: 2rem;
+      height: 2rem;
+      background: #047857;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.875rem;
+      margin-top: 0.15rem;
+    }
+    .highlight {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 1rem;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .highlight p {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #065f46;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: #047857;
+      color: white;
+      font-weight: 700;
+      font-size: 1.125rem;
+      padding: 1rem 2.5rem;
+      border-radius: 1rem;
+      text-decoration: none;
+      margin-top: 1.5rem;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: #065f46; }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #9ca3af;
+      font-size: 0.8rem;
+      border-top: 1px solid #f3f4f6;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <h1>Your Purchase is Complete!</h1>
+    <p>Thank you for joining the GL Protocol. Your journey to reclaiming your health starts now.</p>
+  </div>
+
+  <div class="content">
+    <div class="card">
+      <h2>What Happens Next</h2>
+      <ol class="steps">
+        <li>Check your email inbox for your login credentials. They were sent to the email you used at checkout.</li>
+        <li>Log in to the GL Protocol dashboard using the link and password in your email.</li>
+        <li>Start the protocol immediately. Follow the Daily Routine Clock and begin your first dose today.</li>
+        <li>Use Aurora AI (your 24/7 medical support chatbot inside the dashboard) for any questions about dosages, timing, or symptoms.</li>
+      </ol>
+    </div>
+
+    <div class="card" style="text-align:center;">
+      <h2>Access Your Dashboard</h2>
+      <p style="color:#555;margin-bottom:0.5rem;">Your personalized protocol is waiting for you.</p>
+      <a href="https://app.theglycemicreset.com" class="cta-btn">Go to Dashboard</a>
+    </div>
+
+    <div class="highlight">
+      <p>If you don't see the email within 5 minutes, check your spam/promotions folder.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Copyright &copy; 2026. All Rights Reserved.</p>
+    <p style="margin-top:0.5rem;">This product is not intended to diagnose, treat, cure, or prevent any disease. Results may vary.</p>
+  </footer>
+</body>
+</html>
