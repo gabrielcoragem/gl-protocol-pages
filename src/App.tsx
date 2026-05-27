@@ -3,10 +3,12 @@ import { ArrowRight, CheckCircle2, ShieldCheck, AlertTriangle } from 'lucide-rea
 
 declare global {
   interface Window {
-    acceptUpsell: () => void;
+    acceptUpsell: (url: string) => void;
     declineUpsell: () => void;
   }
 }
+
+const UPSELL_URL = 'https://app.kashpay.com.br/u/23170d8ece78509b';
 
 export default function App() {
   return (
@@ -224,7 +226,7 @@ export default function App() {
           <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 to-green-600"></div>
 
           <button
-            onClick={() => window.acceptUpsell()}
+            onClick={() => window.acceptUpsell(UPSELL_URL)}
             className="w-full bg-[#1db954] hover:bg-[#1ed760] text-white text-xl md:text-3xl font-black py-6 px-6 rounded-2xl shadow-[0_8px_0_#14833b] hover:shadow-[0_4px_0_#14833b] hover:translate-y-1 active:shadow-none active:translate-y-2 transition-all duration-200 flex flex-col items-center justify-center gap-2 group mb-8 border border-[#1ed760]/50 cursor-pointer"
           >
             <span className="flex items-center gap-3">
@@ -240,7 +242,7 @@ export default function App() {
           </ul>
 
           <button
-            onClick={() => window.declineUpsell()}
+            onClick={() => { window.location.href = 'https://thankyou.theglycemicreset.com/'; }}
             className="text-gray-400 hover:text-gray-700 underline text-sm md:text-base transition-colors border-none bg-transparent cursor-pointer font-medium max-w-xl mx-auto block leading-relaxed"
           >
             No thanks. I will proceed with the pure protocol and hope my body, even with insulin resistance, can absorb enough on its own.
@@ -276,7 +278,7 @@ export default function App() {
             </p>
 
             <button
-              onClick={() => window.acceptUpsell()}
+              onClick={() => window.acceptUpsell(UPSELL_URL)}
               className="w-full border-2 border-yellow-400 bg-transparent hover:bg-yellow-400 text-yellow-400 hover:text-gray-900 font-extrabold text-xl md:text-2xl py-5 rounded-2xl transition-all duration-300 shadow-[0_0_20px_rgba(250,204,21,0.2)] hover:shadow-[0_0_30px_rgba(250,204,21,0.4)] cursor-pointer"
             >
               YES, Add the GL Accelerator for $27
