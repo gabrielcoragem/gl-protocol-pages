@@ -4,11 +4,9 @@ import { ArrowRight, CheckCircle2, ShieldCheck, AlertTriangle } from 'lucide-rea
 declare global {
   interface Window {
     acceptUpsell: (url: string) => void;
-    declineUpsell: () => void;
+    declineUpsell?: () => void;
   }
 }
-
-const UPSELL_URL = 'https://app.kashpay.com.br/u/23170d8ece78509b';
 
 export default function App() {
   return (
@@ -28,7 +26,7 @@ export default function App() {
       <div className="bg-red-600 text-white py-5 px-4 text-center shadow-inner">
         <div className="max-w-3xl mx-auto">
           <p className="text-lg md:text-xl font-bold flex flex-col md:flex-row items-center justify-center gap-3">
-            <AlertTriangle className="w-8 h-8 flex-shrink-0 text-yellow-300" />
+            <AlertTriangle className="w-8 h-8 flex-shrink-0 text-yellow-300" /> 
             <span>But stop exactly what you are doing and read this message right now.</span>
           </p>
           <p className="text-base md:text-lg mt-3 font-medium opacity-90">
@@ -39,7 +37,7 @@ export default function App() {
 
       {/* Main Content */}
       <main className="max-w-3xl mx-auto px-5 py-10 md:py-16 text-[18px] md:text-[20px] leading-relaxed">
-
+        
         <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900 text-center mb-10 leading-tight">
           <span className="text-red-600">The Brutal Truth:</span> People Over 45 Waste Up To 80% Of Any Blood Sugar Treatment Before It Ever Reaches Their Cells. Here's How To Fix That.
         </h2>
@@ -114,7 +112,7 @@ export default function App() {
           </ul>
 
           <p className="font-bold mt-8 text-xl">What these 3 steps do:</p>
-
+          
           <ul className="space-y-8 my-8">
             <li className="flex items-start">
               <span className="flex-shrink-0 mt-1 mr-4 text-white bg-blue-600 p-2 rounded-full shadow-md">
@@ -187,16 +185,26 @@ export default function App() {
           <p>
             So today, and exclusively on this page, you can add the <em>GL Accelerator</em> to your order for just:
           </p>
-
+          
           <div className="text-center my-10 bg-white py-8 rounded-2xl shadow-sm border border-gray-100">
             <div className="flex items-center justify-center gap-4">
               <span className="line-through text-gray-400 text-3xl md:text-4xl font-bold">$97</span>
               <span className="text-6xl md:text-8xl font-black text-green-600 tracking-tight">$27</span>
             </div>
             <p className="text-center font-bold text-gray-600 mt-6 uppercase tracking-wide text-sm md:text-base">
-              No subscriptions &bull; One single payment &bull; Immediate access
+              No subscriptions • One single payment • Immediate access
             </p>
           </div>
+
+          <button
+            onClick={() => window.acceptUpsell('https://app.kashpay.com.br/u/23170d8ece78509b')}
+            className="w-full bg-[#1db954] hover:bg-[#1ed760] text-white text-xl md:text-3xl font-black py-6 px-6 rounded-2xl shadow-[0_8px_0_#14833b] hover:shadow-[0_4px_0_#14833b] hover:translate-y-1 active:shadow-none active:translate-y-2 transition-all duration-200 flex flex-col items-center justify-center gap-2 group mt-6 border border-[#1ed760]/50 cursor-pointer"
+          >
+            <span className="flex items-center gap-3">
+              YES! Add to my order for $27 <ArrowRight className="w-6 h-6 md:w-8 md:h-8 group-hover:translate-x-2 transition-transform" />
+            </span>
+            <span className="text-sm md:text-base font-bold opacity-90 block mt-1 tracking-wide uppercase">Click here to add the guide to your order automatically</span>
+          </button>
         </div>
 
         <hr className="my-12 border-gray-200" />
@@ -215,20 +223,20 @@ export default function App() {
             If you do not notice a brutal and aggressive difference in how fast your protocol takes effect, send us a single email. We will refund 100% of your $27. No questions, no stress, no hard feelings.
           </p>
           <div className="bg-white p-4 rounded-lg shadow-sm border border-blue-50 mt-4 text-center">
-            <p className="font-extrabold text-blue-900 text-xl">
-              You keep the guide. We eat the cost. The risk does not exist.
-            </p>
+             <p className="font-extrabold text-blue-900 text-xl">
+               You keep the guide. We eat the cost. The risk does not exist.
+             </p>
           </div>
         </div>
 
         {/* Call to Action Section */}
         <div className="mt-16 bg-white p-6 md:p-12 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-200 text-center relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 to-green-600"></div>
-
-          <button
-            onClick={() => window.acceptUpsell(UPSELL_URL)}
-            className="w-full bg-[#1db954] hover:bg-[#1ed760] text-white text-xl md:text-3xl font-black py-6 px-6 rounded-2xl shadow-[0_8px_0_#14833b] hover:shadow-[0_4px_0_#14833b] hover:translate-y-1 active:shadow-none active:translate-y-2 transition-all duration-200 flex flex-col items-center justify-center gap-2 group mb-8 border border-[#1ed760]/50 cursor-pointer"
-          >
+          
+          <button 
+            type="button"
+            onClick={() => window.acceptUpsell('https://app.kashpay.com.br/u/23170d8ece78509b')}
+            className="w-full bg-[#1db954] hover:bg-[#1ed760] text-white text-xl md:text-3xl font-black py-6 px-6 rounded-2xl shadow-[0_8px_0_#14833b] hover:shadow-[0_4px_0_#14833b] hover:translate-y-1 active:shadow-none active:translate-y-2 transition-all duration-200 flex flex-col items-center justify-center gap-2 group mb-8 border border-[#1ed760]/50 cursor-pointer">
             <span className="flex items-center gap-3">
               YES! Add to my order for $27 <ArrowRight className="w-6 h-6 md:w-8 md:h-8 group-hover:translate-x-2 transition-transform" />
             </span>
@@ -241,8 +249,9 @@ export default function App() {
             <li className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full border border-gray-100"><ShieldCheck className="w-5 h-5 text-green-500" /> 60-Day Guarantee</li>
           </ul>
 
-          <button
-            onClick={() => { window.location.href = 'https://thankyou.theglycemicreset.com/'; }}
+          <button 
+            type="button"
+            onClick={() => { window.declineUpsell?.(); window.location.href = 'https://thankyou.theglycemicreset.com/'; }}
             className="text-gray-400 hover:text-gray-700 underline text-sm md:text-base transition-colors border-none bg-transparent cursor-pointer font-medium max-w-xl mx-auto block leading-relaxed"
           >
             No thanks. I will proceed with the pure protocol and hope my body, even with insulin resistance, can absorb enough on its own.
@@ -251,7 +260,7 @@ export default function App() {
 
         <div className="mt-20 bg-[#111] text-white p-8 md:p-14 rounded-3xl shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-500 rounded-full blur-[120px] opacity-20 pointer-events-none"></div>
-
+          
           <h3 className="text-3xl md:text-4xl font-extrabold mb-8 text-yellow-400 tracking-tight">One Last Thing.</h3>
           <div className="space-y-6 text-gray-300 text-lg md:text-xl">
             <p className="font-semibold text-white">Look at it this way:</p>
@@ -267,7 +276,7 @@ export default function App() {
             <p>
               With the key, you turn it and the machine roars to life instantly.
             </p>
-
+            
             <div className="my-10 h-px bg-white/10 w-full"></div>
 
             <p className="text-white font-extrabold text-2xl md:text-3xl text-center leading-tight">
@@ -276,20 +285,20 @@ export default function App() {
             <p className="text-yellow-400 text-center text-lg md:text-xl font-medium mt-4 mb-10">
               I know you already made your decision.
             </p>
-
-            <button
-              onClick={() => window.acceptUpsell(UPSELL_URL)}
-              className="w-full border-2 border-yellow-400 bg-transparent hover:bg-yellow-400 text-yellow-400 hover:text-gray-900 font-extrabold text-xl md:text-2xl py-5 rounded-2xl transition-all duration-300 shadow-[0_0_20px_rgba(250,204,21,0.2)] hover:shadow-[0_0_30px_rgba(250,204,21,0.4)] cursor-pointer"
-            >
+            
+            <button 
+              type="button"
+              onClick={() => window.acceptUpsell('https://app.kashpay.com.br/u/23170d8ece78509b')}
+              className="w-full border-2 border-yellow-400 bg-transparent hover:bg-yellow-400 text-yellow-400 hover:text-gray-900 font-extrabold text-xl md:text-2xl py-5 rounded-2xl transition-all duration-300 shadow-[0_0_20px_rgba(250,204,21,0.2)] hover:shadow-[0_0_30px_rgba(250,204,21,0.4)] cursor-pointer">
               YES, Add the GL Accelerator for $27
             </button>
           </div>
         </div>
 
       </main>
-
+      
       <footer className="text-center py-12 text-gray-400 text-sm border-t border-gray-100 bg-white">
-        <p className="font-medium">Copyright &copy; {new Date().getFullYear()}. All Rights Reserved.</p>
+        <p className="font-medium">Copyright © {new Date().getFullYear()}. All Rights Reserved.</p>
         <p className="mt-2 text-xs w-full max-w-2xl mx-auto opacity-70">
           This product is not intended to diagnose, treat, cure, or prevent any disease. Results may vary. Information presented here is not a substitute for professional medical advice.
         </p>
